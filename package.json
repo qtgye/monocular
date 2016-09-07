@@ -1,5 +1,5 @@
 {
-  "name": "qtgye-pbs",
+  "name": "monocular",
   "version": "1.0.0",
   "description": "CLI tool for searching piratebay",
   "main": "index.js",
