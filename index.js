@@ -48,6 +48,11 @@ let results = []; // list of results
 
 let userInput = {}; // CLI arguments
 
+let $; // cheerio body object
+
+// Utility variables
+let searchInterval;
+
 
 
 
@@ -69,7 +74,7 @@ function promptSearchInput () {
 }
 
 /**
- * Starts search request to piratebay
+ * process search string and calls search request
  */
 function startSearch (searchString) {
 
@@ -77,7 +82,6 @@ function startSearch (searchString) {
 	let searchEncoded =  encodeURIComponent(search);
 	let url = `http://www.thepiratebay.org/search/${searchEncoded}`;
 	let searching = true;
-	let searchInterval;
 
 	// PROMPT
 	console.log(`\r\nSearching piratebay for: "${search.italic}"\r\n\n`.cyan);
@@ -85,6 +89,13 @@ function startSearch (searchString) {
 		process.stdout.write('\r'+loader.getPipe());
 	}, 100);
 
+	searchRequest(url);
+}
+
+/**
+ * Performs search request and prints the result to console
+ */
+function searchRequest(url) {
 
 	request( url, ( err, resp, body ) => {
 
@@ -92,8 +103,8 @@ function startSearch (searchString) {
 
 		if (!err ) {
 
-			let $ = cheerio.load(body);
-			let rows = $('#searchResult tr:not(.header)');		
+			$ = cheerio.load(body);
+			let rows = $('#searchResult tr:not(.header)');
 
 			console.log(`\rResult${(rows.length > 1 ? 's' : '')} : ${rows.length}\n\n`.cyan);	
 
