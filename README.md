@@ -15,5 +15,6 @@ Mocular opens selected torrent item on your default torrent app using its magnet
 
 > #### TO DO:
 > * Implement Show Comments selection
+> * Implement Pagination
 > * Add caching
 > * Allow search through other torrent sites (?)
