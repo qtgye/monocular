@@ -1,6 +1,6 @@
 {
   "name": "monocular",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool for searching piratebay",
   "main": "index.js",
   "scripts": {
