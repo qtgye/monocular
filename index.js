@@ -8,7 +8,8 @@
  * MODULES
  * --------------------------------------------------------------------------------------------
  */
- 
+
+const _ = require('underscore'); 
 const cheerio = require('cheerio');
 const request = require('request');
 const colors = require('colors');
